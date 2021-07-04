@@ -12,9 +12,39 @@ namespace _01_Struktury
         static void Main(string[] args)
         {
             //ArreyOper();
-            ListOper();
+            //ListOper();
+            HashTableOper();
 
             Console.ReadKey();
+        }
+
+        private static void HashTableOper()
+        {
+            Hashtable tabKrajow = new Hashtable();
+            tabKrajow.Add("PL", "Polska");
+            tabKrajow.Add("UK", "Wielka Brytania");
+            tabKrajow.Add("DE", "Niemcy");
+            tabKrajow.Add("CH", "Szwajcaria");
+            tabKrajow.Add("SE", "Szwecja");
+
+            string klucz = "DK";
+
+            if (tabKrajow.ContainsKey(klucz))
+                Console.WriteLine("tabKrajow[\""+klucz+"\"]: " + tabKrajow[klucz]);
+            else
+                Console.WriteLine("{0} nie istnieje", klucz);
+
+            Console.WriteLine(tabKrajow.ContainsValue("Niemcy"));
+            Console.WriteLine("tabKrajow[\"PL\"]: " + tabKrajow["PL"]);
+
+            tabKrajow.Remove("CH");
+
+            Console.WriteLine();
+            foreach (var k in tabKrajow.Keys)
+            {
+                Console.WriteLine("{0} - {1}", k, tabKrajow[k]);
+            }
+
         }
 
         //Operacje na lisatch
