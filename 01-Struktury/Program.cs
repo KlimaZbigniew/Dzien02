@@ -13,14 +13,103 @@ namespace _01_Struktury
         {
             //ArreyOper();
             //ListOper();
-            HashTableOper();
+            //HashTableOper();
+            //SortedListOper();
+            //StackOper();
+            QueueOper();
 
             Console.ReadKey();
+            //Tablica jest elementem niemutowalnym
+        }
+
+        private static void QueueOper()
+        {
+            Console.WriteLine("Operacje na kolejkach\nQueue kolejka = new Queue();");
+            Queue kolejka = new Queue();
+            kolejka.Enqueue("A");
+            kolejka.Enqueue("B");
+            kolejka.Enqueue("C");
+            kolejka.Enqueue("D");
+
+            string s;
+            Console.WriteLine("foreach (var item in kolejka)\n    Console.WriteLine(item);");
+
+            foreach (var item in kolejka)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\nwhile (kolejka.Count>0)\n    s = (string)kolejka.Dequeue();");
+            while (kolejka.Count>0)
+            {
+                s = (string)kolejka.Dequeue();
+                Console.WriteLine(s);
+            }
+
+            
+
+
+        }
+
+        private static void StackOper()
+        {
+            Console.WriteLine("StackOper()");
+            Stack stos = new Stack();
+            Console.WriteLine("Stack stos = new Stack();");
+            string s = "ABCDEF";
+
+            
+
+            foreach (var litera in s)            
+                stos.Push(litera);
+
+            Console.WriteLine("Wielkość stosu (stos.Count): " + stos.Count);
+            Console.WriteLine();
+            Console.WriteLine("foreach (var litera in s)\n    stos.Push(litera);");
+
+            foreach (var item in stos)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Zdjęcie ze stosu:");
+            Console.WriteLine("char znak = (char)stos.Pop();");
+            char znak = (char)stos.Pop();
+            Console.WriteLine("Zdjęto: " + znak);
+            znak = (char)stos.Pop();
+            Console.WriteLine("Zdjęto: " + znak);
+
+            znak = (char)stos.Peek();
+            Console.WriteLine("Na szczycie ((char)stos.Peek();): " + znak);
+
+            Console.WriteLine("stos.Clear();");
+            stos.Clear();
+
+            //stos.Count;
+            Console.WriteLine("Wielkość stosu (stos.Count): " + stos.Count);
+            
+        }
+
+        private static void SortedListOper()
+        {
+            Console.WriteLine("SortedListOper()");
+            SortedList listaAut = new SortedList();
+            Console.WriteLine("SortedList listaAut = new SortedList();");
+
+            listaAut.Add("001", "Audi");
+            listaAut.Add("002", "Fiat");
+            listaAut.Add("004", "Opel");
+            listaAut.Add("003", "BMW");
+
+            foreach (var autko in listaAut.Keys)
+            {
+                Console.WriteLine("{0} - {1}", autko, listaAut[autko]);
+            }
+
         }
 
         private static void HashTableOper()
         {
-            Hashtable tabKrajow = new Hashtable();
+            Hashtable tabKrajow = new Hashtable();  //UWAGA Tablica nie uporządkowana!!!!!!!
             tabKrajow.Add("PL", "Polska");
             tabKrajow.Add("UK", "Wielka Brytania");
             tabKrajow.Add("DE", "Niemcy");
